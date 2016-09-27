@@ -1,9 +1,10 @@
 package com.qianmi.autotest.app.d2p.page;
 
 import com.qianmi.autotest.app.common.AutotestException;
+import com.qianmi.autotest.app.common.Utilities;
 import com.qianmi.autotest.app.page.BasePage;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,16 +13,16 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ProductPage extends BasePage {
-    @FindBy(id = "goods-detail:name-text")
+    @AndroidFindBy(accessibility = "goods-detail:name-text")
     private WebElement nameText;
 
-    @FindBy(id = "goods-detail:level-price-text")
+    @AndroidFindBy(accessibility = "goods-detail:level-price-text")
     private WebElement priceText;
 
-    @FindBy(id = "goods-detail:buy-num-plus-btn")
+    @AndroidFindBy(accessibility = "goods-detail:buy-num-plus-btn")
     private WebElement addToCartButton;
 
-    @FindBy(id = "goods-detail:shopping-cart-btn")
+    @AndroidFindBy(accessibility = "goods-detail:shopping-cart-btn")
     private WebElement cartButton;
 
     /**
@@ -33,9 +34,9 @@ public class ProductPage extends BasePage {
      */
     public ProductPage verifyProduct(String name, String price) {
         String actualName = nameText.getText();
-        String actualPrice = priceText.getText();
+        String actualPrice = Utilities.getPriceStr(priceText.getText());
 
-        if (actualName.equals(name) && actualPrice.equals(price)) {
+        if (actualName.equals(name) && Utilities.getPriceStr(actualPrice).equals(price)) {
             return this;
         }
 
@@ -55,6 +56,7 @@ public class ProductPage extends BasePage {
 
     /**
      * 跳转到购物车页面
+     *
      * @return 购物车页面
      */
     public CartPage gotoCartPage() {

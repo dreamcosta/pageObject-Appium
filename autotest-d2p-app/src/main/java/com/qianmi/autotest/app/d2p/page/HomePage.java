@@ -1,17 +1,19 @@
 package com.qianmi.autotest.app.d2p.page;
 
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.springframework.stereotype.Component;
 
 /**
  * D2P APP 主页
  * Created by liuzhaoming on 16/9/26.
  */
-public class HomePage extends NavigatorPage  {
-    @FindBy(id = "guide:image")
+@Component
+public class HomePage extends NavigatorPage {
+    @AndroidFindBy(accessibility = "guide:image")
     private WebElement guideSwap;
 
-    @FindBy(id = "overlay-search:search-btn")
+    @AndroidFindBy(accessibility = "overlay-search:search-btn")
     private WebElement searchButton;
 
     /**

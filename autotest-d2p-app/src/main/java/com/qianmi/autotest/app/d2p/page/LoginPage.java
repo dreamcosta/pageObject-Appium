@@ -3,8 +3,8 @@ package com.qianmi.autotest.app.d2p.page;
 
 import com.qianmi.autotest.app.page.AppLoginPage;
 import com.qianmi.autotest.app.page.AppPageFacade;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.IntStream;
@@ -15,19 +15,19 @@ import java.util.stream.IntStream;
  */
 @Component
 public class LoginPage extends AppLoginPage {
-    @FindBy(name = "guide:image")
+    @AndroidFindBy(accessibility = "guide:image")
     private WebElement guideSwap;
 
-    @FindBy(name = "guide:login-btn")
+    @AndroidFindBy(accessibility = "guide:login-btn")
     private WebElement experienceeButton;
 
-    @FindBy(name = "login:user-name-text")
+    @AndroidFindBy(accessibility = "login:user-name-text")
     private WebElement usernameField;
 
-    @FindBy(name = "login:user-password-text")
+    @AndroidFindBy(accessibility = "login:user-password-text")
     private WebElement passwordField;
 
-    @FindBy(name = "login:login-btn")
+    @AndroidFindBy(accessibility = "login:login-btn")
     private WebElement submitButton;
 
 
@@ -53,9 +53,11 @@ public class LoginPage extends AppLoginPage {
      */
     @Override
     protected void afterConstruct() {
-        touchAction.press(guideSwap).perform();
-        IntStream.range(0, 3).forEach(item -> swipeLeft());
+        if (isExist(guideSwap)) {
+            touchAction.press(guideSwap).perform();
+            IntStream.range(0, 4).forEach(item -> swipeLeft());
 
-        wait(experienceeButton).click();
+            wait(experienceeButton).click();
+        }
     }
 }

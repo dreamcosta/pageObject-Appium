@@ -22,6 +22,38 @@
         <selenium.version>2.52.0</selenium.version>
         <appium.version>4.1.2</appium.version>
     </properties>
+    <repositories>
+        <repository>
+            <id>ofpay-snapshots</id>
+            <name>intranet public snapshots</name>
+            <url>
+                http://nexus.dev.ofpay.com/nexus/content/repositories/snapshots
+            </url>
+            <snapshots>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>central</id>
+            <url>
+                http://nexus.dev.ofpay.com/nexus/content/groups/public
+            </url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <url>
+                http://nexus.dev.ofpay.com/nexus/content/groups/public
+            </url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
     <build>
         <plugins>
             <plugin>

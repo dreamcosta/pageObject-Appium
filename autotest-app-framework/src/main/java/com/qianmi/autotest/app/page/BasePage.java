@@ -36,7 +36,7 @@ public abstract class BasePage {
     private int pageWaitTime = 3;
 
     @Value("${config.swipeDuringMillTime}")
-    private int swipeDuringMillTime = 500;
+    private int swipeDuringMillTime = 1000;
 
     @Autowired
     protected TouchAction touchAction;

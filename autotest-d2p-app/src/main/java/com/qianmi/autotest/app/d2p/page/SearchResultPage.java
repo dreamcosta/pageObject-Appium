@@ -1,15 +1,18 @@
 package com.qianmi.autotest.app.d2p.page;
 
 import com.qianmi.autotest.app.page.BasePage;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.springframework.stereotype.Component;
 
 /**
  * 搜索结果页面
  * Created by liuzhaoming on 16/9/26.
  */
+@Component
 public class SearchResultPage extends BasePage {
-    @FindBy(id = "goods-list:goods-name-0-btn")
+    @AndroidFindBy(accessibility = "goods-list:goods-name-0-btn")
     private WebElement exploreProductButton;
 
     /**

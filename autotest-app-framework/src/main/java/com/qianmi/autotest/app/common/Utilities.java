@@ -24,8 +24,22 @@ public final class Utilities {
             return BigDecimal.ZERO;
         }
 
-        String formatStr = StringUtils.strip("￥ ");
+        String formatStr = StringUtils.strip(priceStr, "￥ ");
         return BigDecimal.valueOf(NumberUtils.toDouble(formatStr, 0d));
+    }
+
+    /**
+     * 获取价格
+     *
+     * @param priceStr 价格字符串,格式为'￥30'
+     * @return 价格 数值类型字符串
+     */
+    public static String getPriceStr(String priceStr) {
+        if (StringUtils.isBlank(priceStr)) {
+            return "";
+        }
+
+        return StringUtils.strip(priceStr, "￥ ");
     }
 
     /**

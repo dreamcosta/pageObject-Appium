@@ -1,8 +1,8 @@
 package com.qianmi.autotest.app.d2p.page;
 
 import com.qianmi.autotest.app.page.BasePage;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,35 +14,47 @@ public class ConfirmOrderPage extends BasePage {
     /**
      * 提交订单按钮
      */
-    @FindBy(id="order-confirm:confirm-btn")
+    @AndroidFindBy(accessibility = "order-confirm:confirm-btn")
     private WebElement submitOrderButton;
 
     /**
      * 货到付款按钮
      */
-    @FindBy(id="order-confirm:pay-type-1-radio")
+    @AndroidFindBy(accessibility = "order-confirm:pay-type-1-radio")
     private WebElement payOnDeliveryButton;
 
     /**
      * 在线支付按钮
      */
-    @FindBy(id="order-confirm:pay-type-0-radio")
+    @AndroidFindBy(accessibility = "order-confirm:pay-type-0-radio")
     private WebElement onlinePayButton;
 
     /**
      * 提交订单
+     *
      * @return 跳转到在线支付页面
      */
-    public OnlinePayPage submitOrder(){
+    public OnlinePayPage submitOrder() {
         submitOrderButton.click();
         return gotoPage(OnlinePayPage.class);
     }
 
     /**
+     * 货到付款方式提交订单
+     *
+     * @return 跳转到订单成功页面
+     */
+    public OrderSuccessPage submitOrderByOnDeliveryPay() {
+        submitOrderButton.click();
+        return gotoPage(OrderSuccessPage.class);
+    }
+
+    /**
      * 选择支付方式为货到付款
+     *
      * @return 订单确认页面
      */
-    public ConfirmOrderPage selectPayOnDelivery(){
+    public ConfirmOrderPage selectPayOnDelivery() {
         payOnDeliveryButton.click();
 
         return this;

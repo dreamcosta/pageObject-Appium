@@ -2,8 +2,6 @@ package com.qianmi.autotest.app.d2p;
 
 import com.qianmi.autotest.app.common.PageTest;
 import com.qianmi.autotest.app.d2p.page.HomePage;
-import com.qianmi.autotest.app.d2p.page.SearchPage;
-import com.qianmi.autotest.app.d2p.page.SearchResultPage;
 import com.qianmi.autotest.app.d2p.page.UserOrderPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -49,9 +47,9 @@ public class D2cAppTest extends PageTest {
                 .exploreProduct()
                 .verifyProduct(productName, price).addToCart().gotoCartPage()
                 .selectAllProduct().selectSecondGift().pay()
-                .selectPayOnDelivery().submitOrder()
-                .back();
-        
+                .selectPayOnDelivery().submitOrderByOnDeliveryPay()
+                .gotoOrderListPage();
+
         Assert.assertTrue(userOrderPage.vilifyOrder(productName, price));
     }
 }

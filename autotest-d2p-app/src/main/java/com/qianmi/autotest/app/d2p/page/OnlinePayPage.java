@@ -3,7 +3,6 @@ package com.qianmi.autotest.app.d2p.page;
 import com.qianmi.autotest.app.page.BasePage;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,10 +11,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class OnlinePayPage extends BasePage {
-    @FindBy(id = "qm-header:back-btn")
+    @AndroidFindBy(accessibility = "qm-header:back-btn")
     private WebElement backButton;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().className('android.widget.Button').text('确定')")
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.Button\").text(\"确定\")")
     private WebElement confirmButton;
 
     /**

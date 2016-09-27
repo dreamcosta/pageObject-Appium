@@ -1,6 +1,7 @@
 package com.qianmi.autotest.app.d2p.page;
 
 import com.qianmi.autotest.app.page.BasePage;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
@@ -11,10 +12,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class SearchPage extends BasePage {
-    @FindBy(id = "goods-search:query-text")
+    @AndroidFindBy(accessibility = "goods-search:query-text")
     private WebElement queryStringField;
 
-    @FindBy(id = "goods-search:query-btn")
+    @AndroidFindBy(accessibility = "goods-search:query-btn")
     private WebElement searchButton;
 
     /**

@@ -82,7 +82,7 @@ public class AutotestAppApplication {
     public void closeDriver() {
         if (null != driver) {
             driver.closeApp();
-//            driver.close();
+            driver.close();
         }
     }
 }
