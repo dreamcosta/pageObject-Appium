@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 商品详情页面
- * Created by liuzhaoming on 16/9/26.
+ *
  */
 @Component
 public class ProductPage extends BasePage {
@@ -24,6 +24,12 @@ public class ProductPage extends BasePage {
 
     @AndroidFindBy(accessibility = "goods-detail:shopping-cart-btn")
     private WebElement cartButton;
+
+    @AndroidFindBy(accessibility = "goods-detail:back-btn")
+    private WebElement detailBackBtn;
+
+    @AndroidFindBy(accessibility = "goods-detail:favorite-btn")
+    private WebElement favoriteBtn;
 
     /**
      * 校验商品信息
@@ -49,7 +55,7 @@ public class ProductPage extends BasePage {
      * @return 返回商品详情页面
      */
     public ProductPage addToCart() {
-        addToCartButton.click();
+        WaitMobileElement(addToCartButton).click();
 
         return this;
     }
@@ -60,8 +66,24 @@ public class ProductPage extends BasePage {
      * @return 购物车页面
      */
     public CartPage gotoCartPage() {
-        cartButton.click();
+        WaitMobileElement(cartButton).click();
 
         return gotoPage(CartPage.class);
     }
+    /**
+     * 跳转到搜索结果页面上
+     *
+     * @return 搜索结果页面
+     */
+    public SearchResultPage gotoSearchResultPage() {
+        WaitMobileElement(detailBackBtn).click();
+        return gotoPage(SearchResultPage.class);
+    }
+
+    public ProductPage clickFavoriteBtn() {
+        WaitMobileElement(favoriteBtn).click();
+        return this;
+
+    }
+
 }

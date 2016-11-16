@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * APP页面门户
- * Created by liuzhaoming on 16/9/26.
+ *
  */
 @Component
 public class AppPageFacade extends BasePage {

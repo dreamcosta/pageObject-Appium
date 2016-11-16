@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 /**
  * 通用工具类
- * Created by liuzhaoming on 16/9/27.
+ *
  */
 public final class Utilities {
     private Utilities() {

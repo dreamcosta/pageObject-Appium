@@ -2,7 +2,7 @@ package com.qianmi.autotest.app.page;
 
 /**
  * APP登录页面
- * Created by liuzhaoming on 16/9/26.
+ *
  */
 public abstract class AppLoginPage extends BasePage{
     /**

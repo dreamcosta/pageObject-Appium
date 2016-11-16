@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="false">
+	<test name="Demo" >
+		<classes>
+			<class name="com.qianmi.autotest.app.d2p.D2cAppTest" >
+				<methods preserve-order="true">
+					<include name="CategoriesTest" />
+					<include name="productDetail" />
+					<include name="productFavorites" />
+					<include name="testBuy" />
+					<include name="testBuyWithGiftAndPayOnDelivery" />
+					<include name="testBuywithDiscount" />
+					<exclude name="testBuyWithPoints" />
+					<include name="testBuyWithCoupon" />
+					<include name="OrderCancel" />
+					<include name="BuyAgain" />
+					<include name="shopOrder" />
+					<include name="shopAndSelfOrder" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>
+
+

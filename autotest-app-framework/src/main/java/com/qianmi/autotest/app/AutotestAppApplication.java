@@ -22,7 +22,7 @@ import java.util.Properties;
 
 /**
  * APP自动化测试主程序入口
- * Created by liuzhaoming on 16/9/23.
+ *
  */
 @SpringBootApplication
 @ComponentScan("com.qianmi.autotest")
@@ -81,8 +81,8 @@ public class AutotestAppApplication {
     @PreDestroy
     public void closeDriver() {
         if (null != driver) {
-            driver.closeApp();
-            driver.close();
+           // driver.closeApp();
+            driver.quit();
         }
     }
 }

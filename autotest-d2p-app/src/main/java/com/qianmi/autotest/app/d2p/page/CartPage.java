@@ -7,14 +7,14 @@ import org.springframework.stereotype.Component;
 
 /**
  * 购物车页面
- * Created by liuzhaoming on 16/9/26.
+ *
  */
 @Component
 public class CartPage extends BasePage {
     /**
      * 选择所有商品按钮
      */
-    @AndroidFindBy(accessibility = "shopping-cart:shop-checkbox-0-btn")
+    @AndroidFindBy(accessibility = "shopping-cart:select-all-btn")
     private WebElement selectAllButton;
 
     /**
@@ -41,13 +41,15 @@ public class CartPage extends BasePage {
     @AndroidFindBy(accessibility = "shopping-cart:choose-gift-confirm-btn")
     private WebElement confirmGiftButton;
 
+
+
     /**
      * 选择所有商品
      *
      * @return 购物车页面
      */
     public CartPage selectAllProduct() {
-        selectAllButton.click();
+        WaitMobileElement(selectAllButton).click();
 
         return this;
     }
@@ -58,9 +60,9 @@ public class CartPage extends BasePage {
      * @return 购物车页面
      */
     public CartPage selectSecondGift() {
-        selectGiftButton.click();
-        wait(secondGiftRadioButton).click();
-        confirmGiftButton.click();
+        WaitMobileElement(selectGiftButton).click();
+        WaitMobileElement(secondGiftRadioButton).click();
+        WaitMobileElement(confirmGiftButton).click();
         return this;
     }
 
@@ -70,7 +72,7 @@ public class CartPage extends BasePage {
      * @return 确认订单页面
      */
     public ConfirmOrderPage pay() {
-        settleUpButton.click();
+        WaitMobileElement(settleUpButton).click();
 
         return gotoPage(ConfirmOrderPage.class);
     }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 订单提交成功页面
- * Created by liuzhaoming on 16/9/27.
+ *
  */
 @Component
 public class OrderSuccessPage extends BasePage {
@@ -20,7 +20,7 @@ public class OrderSuccessPage extends BasePage {
      * @return 订单列表页面
      */
     public UserOrderPage gotoOrderListPage() {
-        orderListButton.click();
+        WaitMobileElement(orderListButton).click();
 
         return gotoPage(UserOrderPage.class);
     }

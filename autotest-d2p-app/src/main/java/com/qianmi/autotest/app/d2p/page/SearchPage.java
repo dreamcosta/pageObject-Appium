@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 搜索输入框页面
- * Created by liuzhaoming on 16/9/26.
+ *
  */
 @Component
 public class SearchPage extends BasePage {
@@ -18,6 +18,9 @@ public class SearchPage extends BasePage {
     @AndroidFindBy(accessibility = "goods-search:query-btn")
     private WebElement searchButton;
 
+    @AndroidFindBy(accessibility = "goods-search:back-btn")
+    private WebElement searchBackBtn;
+
     /**
      * 搜索商品
      *
@@ -26,8 +29,18 @@ public class SearchPage extends BasePage {
      */
     public SearchResultPage search(String queryString) {
         queryStringField.sendKeys(queryString);
-        searchButton.click();
+        WaitMobileElement(searchButton).click();
 
         return gotoPage(SearchResultPage.class);
     }
+    /**
+     * 返回到搜索页面
+     *
+     * @return 首页
+     */
+    public HomePage gotoHomePage() {
+        WaitMobileElement(searchBackBtn).click();
+        return gotoPage(HomePage.class);
+    }
+
 }

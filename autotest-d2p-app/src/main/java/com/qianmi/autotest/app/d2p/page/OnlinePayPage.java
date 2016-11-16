@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 在线支付页面
- * Created by liuzhaoming on 16/9/26.
+ *
  */
 @Component
 public class OnlinePayPage extends BasePage {
@@ -22,9 +22,10 @@ public class OnlinePayPage extends BasePage {
      *
      * @return 我的订单页面
      */
-    public UserOrderPage back() {
+    public UserOrderPage
+    back() {
         backButton.click();
-        wait(confirmButton).click();
+        WaitMobileElement(confirmButton).click();
 
         return gotoPage(UserOrderPage.class);
     }

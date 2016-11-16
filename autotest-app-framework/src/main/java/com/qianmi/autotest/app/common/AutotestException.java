@@ -4,7 +4,7 @@ import lombok.*;
 
 /**
  * 异常基类
- * Created by liuzhaoming on 16/9/26.
+ *
  */
 @Data
 @AllArgsConstructor

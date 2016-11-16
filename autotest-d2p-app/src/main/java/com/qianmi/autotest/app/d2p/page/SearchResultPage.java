@@ -8,12 +8,14 @@ import org.springframework.stereotype.Component;
 
 /**
  * 搜索结果页面
- * Created by liuzhaoming on 16/9/26.
+ *
  */
 @Component
 public class SearchResultPage extends BasePage {
     @AndroidFindBy(accessibility = "goods-list:goods-name-0-btn")
     private WebElement exploreProductButton;
+    @AndroidFindBy(accessibility = "goods-category-list:back-btn")
+    private  WebElement goodsListBackBtn;
 
     /**
      * 浏览商品详情
@@ -21,7 +23,17 @@ public class SearchResultPage extends BasePage {
      * @return 商品详情页面
      */
     public ProductPage exploreProduct() {
-        wait(exploreProductButton).click();
+        WaitMobileElement(exploreProductButton).click();
         return gotoPage(ProductPage.class);
     }
+    /**
+     * 商品列表返回按钮
+     *
+     * @return 搜索页面
+     */
+    public SearchPage gotoSearchPage() {
+        WaitMobileElement(goodsListBackBtn).click();
+        return gotoPage(SearchPage.class);
+    }
+
 }

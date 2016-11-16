@@ -16,7 +16,7 @@ import java.util.Properties;
 
 /**
  * Test基类
- * Created by liuzhaoming on 16/9/23.
+ *
  */
 @SpringApplicationConfiguration(AutotestAppApplication.class)
 public class PageTest extends AbstractTestNGSpringContextTests {

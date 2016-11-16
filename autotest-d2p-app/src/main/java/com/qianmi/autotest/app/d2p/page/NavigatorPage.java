@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 带下方工具条页面
- * Created by liuzhaoming on 16/9/26.
+ *
  */
 @Component
 public abstract class NavigatorPage extends BasePage implements Logoutable {
@@ -40,7 +40,7 @@ public abstract class NavigatorPage extends BasePage implements Logoutable {
             wait(userButton).click();
             wait(myInfoButton).click();
             wait(logoutButton).click();
-            wait(confirmButton).click();
+            WaitMobileElement(confirmButton).click();
         } catch (Exception e) {
             LOGGER.warn("logout fail", e);
         }
@@ -52,7 +52,7 @@ public abstract class NavigatorPage extends BasePage implements Logoutable {
      * @return APP主页
      */
     public HomePage gotoHomePage() {
-        homeButton.click();
+        WaitMobileElement(homeButton).click();
 
         return gotoPage(HomePage.class);
     }

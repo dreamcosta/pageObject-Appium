@@ -11,7 +11,7 @@ import java.util.stream.IntStream;
 
 /**
  * D2P APP登录页面
- * Created by liuzhaoming on 16/9/26.
+ *
  */
 @Component
 public class LoginPage extends AppLoginPage {
@@ -41,9 +41,9 @@ public class LoginPage extends AppLoginPage {
     @Override
     public AppPageFacade login(String username, String password) {
         initPage(this);
-        wait(usernameField).sendKeys(username);
-        wait(passwordField).sendKeys(password);
-        wait(submitButton).click();
+        WaitMobileElement(usernameField).sendKeys(username);
+        WaitMobileElement(passwordField).sendKeys(password);
+        WaitMobileElement(submitButton).click();
 
         return gotoPage(AppPageFacade.class);
     }
@@ -54,8 +54,8 @@ public class LoginPage extends AppLoginPage {
     @Override
     protected void afterConstruct() {
         if (isExist(guideSwap)) {
-            touchAction.press(guideSwap).perform();
-            IntStream.range(0, 4).forEach(item -> swipeLeft());
+//           // touchAction.press(guideSwap).perform();
+            IntStream.range(0, 5).forEach(item -> swipeLeft(1000));
 
             wait(experienceeButton).click();
         }

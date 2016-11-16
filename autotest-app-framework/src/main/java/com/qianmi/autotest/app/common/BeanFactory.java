@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  * Spring Bean 工厂类
- * Created by liuzhaoming on 16/9/22.
+ *
  */
 @Component
 public class BeanFactory implements ApplicationContextAware {

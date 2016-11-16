@@ -9,7 +9,7 @@ import java.util.Properties;
 
 /**
  * Bean容器, 主要配置框架使用的Bean对象
- * Created by liuzhaoming on 16/9/27.
+ *
  */
 @ConfigurationProperties
 @Data

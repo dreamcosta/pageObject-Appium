@@ -1,9 +1,11 @@
 package com.qianmi.autotest.app.page;
 
+import com.qianmi.autotest.app.AppiumDriverWait;
 import com.qianmi.autotest.app.common.BeanFactory;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.apache.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +20,7 @@ import org.springframework.beans.factory.annotation.Value;
 
 /**
  * APP测试基类
- * Created by liuzhaoming on 16/9/23.
+ *
  */
 public abstract class BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(BasePage.class);
@@ -133,12 +135,12 @@ public abstract class BasePage {
         // wait for page loading
     }
 
-    /**
-     * This Method for swipe Left
-     */
-    protected void swipeLeft() {
-        swipeLeft(swipeDuringMillTime);
-    }
+//    /**
+//     * This Method for swipe Left
+//     */
+//    protected void swipeLeft() {
+//        swipeLeft(swipeDuringMillTime);
+//    }
 
 
     /**
@@ -187,6 +189,38 @@ public abstract class BasePage {
 
         return resultWebElement;
     }
+
+//    protected WebElement WaitMobileElement(final  String s) {
+//        //wait for 60s if WebElemnt show up less than 60s , then return , until 60s
+//        WebElement showClose = (new AppiumDriverWait(driver,pageWaitTime))
+//                .until(new ExpectedCondition<WebElement>() {
+//
+//
+//                    public WebElement apply(WebDriver webDriver) {
+//                        return driver.findElementByAccessibilityId(s);
+//                    }
+//
+//
+//                });
+//        return showClose;
+//    }
+
+    protected WebElement WaitMobileElement(WebElement webElement) {
+        //wait for 60s if WebElemnt show up less than 60s , then return , until 60s
+        WebElement showClose = (new AppiumDriverWait(driver,pageWaitTime))
+                .until(new ExpectedCondition<WebElement>() {
+
+
+                    public WebElement apply(WebDriver webDriver) {
+                        webElement.isDisplayed();
+                        return webElement;
+                    }
+
+
+                });
+        return showClose;
+    }
+
 
     /**
      * 判断Page 元素是否存在

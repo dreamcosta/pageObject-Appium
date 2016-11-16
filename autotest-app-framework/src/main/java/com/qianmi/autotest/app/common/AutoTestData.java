@@ -9,7 +9,7 @@ import java.util.Properties;
 
 /**
  * 测试数据
- * Created by liuzhaoming on 16/9/27.
+ *
  */
 @ConfigurationProperties(locations = "classpath:data.properties")
 @Data
