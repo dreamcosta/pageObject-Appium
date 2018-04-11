@@ -12,6 +12,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import javax.annotation.Resource;
+import java.lang.reflect.Method;
 import java.util.Properties;
 
 /**
@@ -47,7 +48,11 @@ public class PageTest extends AbstractTestNGSpringContextTests {
     }
 
     @BeforeMethod
-    public void login() {
+    public void login(Method method) {
+      AppLoginPage loginPage = BeanFactory.getBeanByType(AppLoginPage.class);
+        //scene 实现某个场景下的特殊赋值
+
+        String sceneName = CommonUtils.getSceneName(method);
         String userName = inputData.getProperty("userName");
         String password = inputData.getProperty("password");
 

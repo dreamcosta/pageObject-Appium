@@ -1,7 +1,7 @@
 package com.qianmi.autotest.app.d2p.page;
 
 import com.qianmi.autotest.app.common.AutotestException;
-import com.qianmi.autotest.app.common.Utilities;
+import com.qianmi.autotest.app.common.CommonUtils;
 import com.qianmi.autotest.app.page.BasePage;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
@@ -40,9 +40,9 @@ public class ProductPage extends BasePage {
      */
     public ProductPage verifyProduct(String name, String price) {
         String actualName = nameText.getText();
-        String actualPrice = Utilities.getPriceStr(priceText.getText());
+        String actualPrice = CommonUtils.getPriceStr(priceText.getText());
 
-        if (actualName.equals(name) && Utilities.getPriceStr(actualPrice).equals(price)) {
+        if (actualName.equals(name) && CommonUtils.getPriceStr(actualPrice).equals(price)) {
             return this;
         }
 

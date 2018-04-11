@@ -32,6 +32,7 @@ public class AutotestAppApplication {
     @Value("${appUrl}")
     private String appUrl;
 
+
     @Autowired
     private AppiumDriver driver;
 
@@ -53,6 +54,7 @@ public class AutotestAppApplication {
             }
         } catch (Exception e) {
             LOGGER.error("Create appium driver fail", e);
+
             throw new AutotestException("Create appium driver fail");
         }
     }

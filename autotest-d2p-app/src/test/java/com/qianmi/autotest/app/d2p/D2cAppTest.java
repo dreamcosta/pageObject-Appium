@@ -10,13 +10,14 @@ import org.testng.annotations.Test;
  * D2P APP 测试用例
  * 
  */
+
 public class D2cAppTest extends PageTest {
 
     /**
      * 场景5:下单不参加任何营销活动
      * 步骤:2)搜索商品3)查看商品详情4)加入采购单5) 进入采购单去结算6)提交订单7)订单列表搜索订单
      */
-    @Test
+    @Test(priority = 0)
     public void testBuy() {
         String productName = inputData.getProperty("productName1");
         String price = inputData.getProperty("productPrice1");
@@ -63,7 +64,7 @@ public class D2cAppTest extends PageTest {
 
      */
 
-    @Test
+    @Test()
     public void CategoriesTest() {
         try {
             String cateName = inputData.getProperty("cateName");
