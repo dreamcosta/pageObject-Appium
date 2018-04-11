@@ -1,7 +1,6 @@
 package com.qianmi.autotest.app.d2p.page;
 
 import com.qianmi.autotest.app.common.AutotestException;
-import com.qianmi.autotest.app.common.Utilities;
 import com.qianmi.autotest.app.page.BasePage;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
